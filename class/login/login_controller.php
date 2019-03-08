@@ -22,15 +22,36 @@
 			$this->objView->fntContentPage($strAction);
 		}
 
-		public function getAjax($strAction){			
+		public function getAjax($strAction){		
 			
-
 			if (isset($_GET["login"])) {	
 				$strUsername = isset($_POST["username"]) ? trim($_POST["username"]) : "";
 				$strPass = isset($_POST["pass"]) ? trim($_POST["pass"]) : "";	
 
-				$arr = $this->objModel->login($strUsername , $strPass);
-				//drawdebug($arr);
+				if (!empty($strUsername) && !empty($strPass)) {
+
+					$rTMP = $this->objModel->login($strUsername , $strPass);
+					//drawdebug($rTMP);
+					//die();
+
+					if ( sizeof($rTMP) > 0 ) {	
+						$_SESSION["core"]["login"] = true;
+						$_SESSION["core"]["name"] = $rTMP["name"];
+						$_SESSION["core"]["username"] = $rTMP["username"];
+						$_SESSION["core"]["id"] = $rTMP["id"];	
+
+						$arr["err"] = "false";        
+			        	$arr["msn"] = "Login Successfully";  
+						
+					} else {					
+						$arr["err"] = "true";         
+			            $arr["msn"] = "Incorrect username or password.";
+					}
+				} else {
+					$arr["err"] = "true";        
+			        $arr["msn"] = "Incorrect data";       
+				}
+
 				print json_encode($arr);
 				die();
 			} 

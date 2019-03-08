@@ -11,23 +11,7 @@ $objController = new login_controller();
 
 $objController->getAjax($strAction);
 
-fntDrawHeaderPage();
-
-	?>
-		
-		<div class="container">
-			<div class="row mt-4">
-				<div class="col-md-4 mx-auto">
-	<?php
-
-					$objController->drawContentPage($strAction);
-
-	?>
-	 			</div>
-			    <!-- /.content-wrapper -->
-	        </div>
-		</body>
-		</html>
-	<?php
+	fntDrawHeaderPage();
+	$objController->drawContentPage($strAction);
                                   
 ?>
