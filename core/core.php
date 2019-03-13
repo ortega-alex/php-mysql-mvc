@@ -17,7 +17,8 @@
 				    <title>Php</title>
 
 				    <!-- Custom fonts for this template-->
-				    <link href="Public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+				    <!--link href="Public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"-->
+				    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 				    <!-- Page level plugin CSS-->
 				    <link href="Public/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
@@ -121,7 +122,7 @@
 			            <div id="content-wrapper">
 			                <!-- contenido -->
 			                <div class="container-fluid">
-			                	<h1> <?php print $strNombrePagina;?> </h1>
+			                	<h3> <?php print $strNombrePagina;?> </h3>
 <?php
 	}
 
